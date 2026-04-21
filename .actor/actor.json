@@ -1,0 +1,48 @@
+{
+    "actorSpecification": 1,
+    "name": "company-news-events-miner",
+    "title": "Company News & Events Miner",
+    "description": "Identifies high-value business trigger events (expansion, funding, product launches, partnerships, compliance) for any company using free/freemium news sources. Outputs structured intent signals scored 1–10.",
+    "version": "1.0",
+    "buildTag": "latest",
+    "environmentVariables": [
+        { "name": "NEWSAPI_KEY", "description": "Optional: NewsAPI.org free tier key" },
+        { "name": "GNEWS_KEY", "description": "Optional: GNews.io free tier key" },
+        { "name": "THENEWSAPI_KEY", "description": "Optional: TheNewsAPI.com free tier key" },
+        { "name": "MEDIASTACK_KEY", "description": "Optional: MediaStack.com free tier key" }
+    ],
+    "dockerfile": "./Dockerfile",
+    "input": "./INPUT_SCHEMA.json",
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "title": "Business Event Records",
+            "views": {
+                "overview": {
+                    "title": "Event Overview",
+                    "transformation": {
+                        "fields": [
+                            "company_name", "event_type", "headline",
+                            "summary", "event_date", "intent_signal",
+                            "event_impact_score", "source", "source_link"
+                        ]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "company_name": { "label": "Company", "format": "text" },
+                            "event_type": { "label": "Type", "format": "text" },
+                            "headline": { "label": "Headline", "format": "text" },
+                            "summary": { "label": "Summary", "format": "text" },
+                            "event_date": { "label": "Date", "format": "date" },
+                            "intent_signal": { "label": "Signal", "format": "text" },
+                            "event_impact_score": { "label": "Score", "format": "number" },
+                            "source": { "label": "Source", "format": "text" },
+                            "source_link": { "label": "Link", "format": "link" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
