@@ -5,12 +5,12 @@
     "description": "Identifies high-value business trigger events (expansion, funding, product launches, partnerships, compliance) for any company using free/freemium news sources. Outputs structured intent signals scored 1–10.",
     "version": "1.0",
     "buildTag": "latest",
-    "environmentVariables": [
-        { "name": "NEWSAPI_KEY", "description": "Optional: NewsAPI.org free tier key" },
-        { "name": "GNEWS_KEY", "description": "Optional: GNews.io free tier key" },
-        { "name": "THENEWSAPI_KEY", "description": "Optional: TheNewsAPI.com free tier key" },
-        { "name": "MEDIASTACK_KEY", "description": "Optional: MediaStack.com free tier key" }
-    ],
+"environmentVariables": {
+    "NEWSAPI_KEY": "Optional: NewsAPI.org free tier key",
+    "GNEWS_KEY": "Optional: GNews.io free tier key",
+    "THENEWSAPI_KEY": "Optional: TheNewsAPI.com free tier key",
+    "MEDIASTACK_KEY": "Optional: MediaStack.com free tier key"
+},
     "dockerfile": "./Dockerfile",
     "input": "./INPUT_SCHEMA.json",
     "storages": {
