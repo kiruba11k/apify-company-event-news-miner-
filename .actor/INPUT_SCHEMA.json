@@ -56,34 +56,7 @@
             "editor": "textfield",
             "default": "en"
         },
-        "NEWSAPI_KEY": {
-            "title": "NewsAPI Key (optional)",
-            "type": "string",
-            "description": "Free tier: 100 requests/day at newsapi.org",
-            "editor": "textfield",
-            "isSecret": true
-        },
-        "GNEWS_KEY": {
-            "title": "GNews API Key (optional)",
-            "type": "string",
-            "description": "Free tier: 100 requests/day at gnews.io",
-            "editor": "textfield",
-            "isSecret": true
-        },
-        "THENEWSAPI_KEY": {
-            "title": "TheNewsAPI Key (optional)",
-            "type": "string",
-            "description": "Free tier: 100 requests/day at thenewsapi.com",
-            "editor": "textfield",
-            "isSecret": true
-        },
-        "MEDIASTACK_KEY": {
-            "title": "MediaStack Key (optional)",
-            "type": "string",
-            "description": "Free tier: 500 requests/month at mediastack.com",
-            "editor": "textfield",
-            "isSecret": true
-        }
+       
     },
     "required": ["company_name"]
 }
