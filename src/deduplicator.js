@@ -8,7 +8,6 @@
  * Threshold: articles with title similarity > 0.65 are considered duplicates.
  * Keeps the version with the richest description.
  */
-
 export class Deduplicator {
     constructor(threshold = 0.65) {
         this.threshold = threshold;
@@ -37,7 +36,10 @@ export class Deduplicator {
     }
 
     _normalizeUrl(url = '') {
-        return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '').toLowerCase();
+        return url
+            .replace(/^https?:\/\/(www\.)?/, '')
+            .replace(/\/$/, '')
+            .toLowerCase();
     }
 
     _richer(a, b) {
@@ -48,14 +50,15 @@ export class Deduplicator {
         const words1 = new Set(this._tokenize(t1));
         const words2 = new Set(this._tokenize(t2));
         const intersection = new Set([...words1].filter(w => words2.has(w)));
-        const union = new Set([...words1, ...words2]);
+        const union        = new Set([...words1, ...words2]);
         return union.size === 0 ? 0 : intersection.size / union.size;
     }
 
     _tokenize(text) {
-        return text.toLowerCase()
+        return text
+            .toLowerCase()
             .replace(/[^a-z0-9\s]/g, ' ')
             .split(/\s+/)
-            .filter(w => w.length > 2); // Remove stopwords by length
+            .filter(w => w.length > 2); // Remove very short / stop words
     }
 }
