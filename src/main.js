@@ -153,7 +153,7 @@ async function processCompany(targetCompany) {
         company_name:        targetCompany,
         event_type:          classification.event_type,
         headline:            article.title,
-        summary:             summaries[i] || article.description || '',
+        // summary:             summaries[i] || article.description || '',
         event_date:          article.publishedAt || article.date || null,
         source:              article.source,
         source_link:         article.url,
